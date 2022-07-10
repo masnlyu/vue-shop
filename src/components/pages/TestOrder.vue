@@ -122,25 +122,23 @@
                     </div>
                 </div>
             </div>
-
         </div>
-        <!-- <div class="my-5 row justify-content-center">
+
+        <div class="my-5 row justify-content-center">
             <form class="col-md-6" @submit.prevent="createOrder">
                 <div class="form-group">
                     <label for="useremail">Email</label>
-                    <input type="email" class="form-control" name="email" id="useremail" v-validate="'required|email'"
-                        :class="{ 'is-invalid': errors.has('email') }" v-model="form.user.email" placeholder="請輸入 Email">
-                    <span class="text-danger" v-if="errors.has('email')">
-                        {{ errors.first('email') }}
-                    </span>
+                    <input type="email" class="form-control" name="email" id="useremail"
+                         v-model="form.user.email" placeholder="請輸入 Email" required>
+                    <span class="text-danger">
+                                        </span>
                 </div>
-
                 <div class="form-group">
                     <label for="username">收件人姓名</label>
                     <input type="text" class="form-control" name="name" id="username"
-                        :class="{ 'is-invalid': errors.has('name') }" v-model="form.user.name" v-validate="'required'"
+                         v-model="form.user.name" required
                         placeholder="輸入姓名">
-                    <span class="text-danger" v-if="errors.has('name')">姓名必須輸入</span>
+                    <span class="text-danger" v-if="!form.user.name">姓名必須輸入</span>
                 </div>
 
                 <div class="form-group">
@@ -151,9 +149,9 @@
                 <div class="form-group">
                     <label for="useraddress">收件人地址</label>
                     <input type="address" class="form-control" name="address"
-                        :class="{ 'is-invalid': errors.has('address') }" id="useraddress" v-model="form.user.address"
-                        v-validate="'required'" placeholder="請輸入地址">
-                    <span class="text-danger" v-if="errors.has('address')">地址欄位不得留空</span>
+                         id="useraddress" v-model="form.user.address"
+                        required placeholder="請輸入地址">
+                    <span class="text-danger">地址欄位不得留空</span>
                 </div>
 
                 <div class="form-group">
@@ -164,7 +162,7 @@
                     <button class="btn btn-danger">送出訂單</button>
                 </div>
             </form>
-        </div> -->
+        </div>
     </div>
 </template>
 <script>
@@ -264,22 +262,16 @@ export default {
             const vm = this;
             const api = `https://vue-course-api.hexschool.io/api/mason/order`;
             const order = vm.form;
-            // vm.isLoading = true;
-            this.$validator.validate().then((result) => {
-                if (result) {
+            vm.isLoading = true;
                     this.$http.post(api, { data: order }).then((response) => {
                         console.log('訂單已建立', response);
                         if (response.data.success) {
-                            vm.$router.push(`/customer_checkout/${response.data.orderId}`);
+                            vm.$router.push(`/cheakOrder/${response.data.orderId}`);
                         }
-                        // vm.getCart();
+                        vm.getCart();
                         vm.isLoading = false;
                     });
-                } else {
-                    console.log('欄位不完整');
-                }
-            });
-        },
+            }
     },
     created() {
         this.getproducts()

@@ -29,7 +29,7 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Sign in
       </button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+      <p class="mt-5 mb-3 text-muted">&copy; 2022-2022</p>
     </form>
   </div>
 </template>
@@ -59,7 +59,7 @@ export default {
           const token = response.data.token;
           const expired = response.data.expired;
           document.cookie = `hexToken=${token}; expires=${expired}`;
-          vm.$router.push("/admin/product");
+          vm.$router.push("/admin/products");
         } else {
           alert("登入失敗");
         }

@@ -19,21 +19,25 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <router-link class="nav-link" to="/admin/product">
+            <router-link class="nav-link" to="/admin/products">
               <i class="fas fa-box-open"></i>
               產品列表
-              </router-link>
+            </router-link>
           </li>
-        </ul>
-        <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <router-link class="nav-link" to="/admin/oders">
-              <i class="fas fa-box-open"></i>
+            <router-link class="nav-link" to="/admin/orders">
+              <i class="far fa-list-alt"></i>
               訂單列表
-              </router-link>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/admin/coupons">
+              <i class="fas fa-ticket-alt"></i>
+              優惠券管理
+            </router-link>
           </li>
         </ul>
-                <h6 class="
+        <h6 class="
             sidebar-heading
             d-flex
             justify-content-between
@@ -50,10 +54,10 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-                        <router-link class="nav-link" to="/admin/testOder">
-              <i class="fas fa-box-open"></i>
+            <router-link class="nav-link" to="/testOrder">
+              <i class="fas fa-shopping-cart"></i>
               模擬訂單
-              </router-link>
+            </router-link>
           </li>
         </ul>
       </div>

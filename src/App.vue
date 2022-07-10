@@ -22,4 +22,5 @@ export default {
 <style lang ="scss">
 @import "~bootstrap/scss/bootstrap";
 @import "./assets/Dashboard";
+@import './assets/css/all.css';
 </style>
